@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <link
+    rel="stylesheet"
+    href="https://ssl.gstatic.com/docs/script/css/add-ons1.css"
+  />
+  <? includeFile_(output ,"sidebar_css") ?>
+  <head>
+    <base target="_top" />
+  </head>
+
+  <body>
+    <div class="center-header">
+      <h1>Register Your Entry</h1>
+    </div>
+
+    <div class="center-para">
+      <p>Please Enter your Phone number, Name and Email.</p>
+    </div>
+
+    <div class="center-input">
+      <label>Phone Number: </label>
+      <input
+        class="form-group"
+        type="number"
+        id="phoneInput"
+        placeholder="ex: 9992000034"
+      />
+
+      <label>Name: </label>
+      <input
+        class="form-group"
+        type="text"
+        id="nameInput"
+        placeholder="ex: John"
+      />
+
+      <label>Email: </label>
+      <input
+        class="form-group"
+        type="email"
+        id="emailInput"
+        placeholder="ex: John@gmail.com"
+      />
+    </div>
+
+    <div class="center-button">
+      <button class="action" id="submitButton">Submit</button>
+    </div>
+
+    <div class="show-error" id="error-dialog"></div>
+
+    <? includeFile_(output ,"sidebar_Js") ?>
+  </body>
+</html>

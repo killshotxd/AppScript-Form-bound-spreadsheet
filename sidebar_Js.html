@@ -1,0 +1,50 @@
+<script>
+  const phoneInput = document.getElementById("phoneInput");
+  const submitButton = document.getElementById("submitButton");
+  const errorDialog = document.getElementById("error-dialog");
+  const nameInput = document.getElementById("nameInput");
+  const emailInput = document.getElementById("emailInput");
+
+  let emailInputValue = "";
+  let phoneInputValue = "";
+  let nameInputValue = "";
+  errorDialog.innerHTML = "";
+
+  phoneInput.addEventListener("change", (e) => {
+    let inputValue = e.target.value;
+    phoneInputValue = inputValue;
+    console.log(phoneInputValue);
+  });
+
+  nameInput.addEventListener("change", (e) => {
+    let inputValueText = e.target.value;
+    nameInputValue = inputValueText;
+    console.log(nameInputValue);
+  });
+
+  emailInput.addEventListener("change", (e) => {
+    let inputValueEmail = e.target.value;
+    emailInputValue = inputValueEmail;
+    console.log(emailInputValue);
+  });
+
+  submitButton.addEventListener("click", () => {
+    if (phoneInputValue == "") {
+      console.log("if");
+      errorDialog.innerHTML = "Please Enter a valid 10 digit Number";
+    } else if (phoneInputValue == NaN) {
+      errorDialog.innerHTML = "Enter number only";
+    } else {
+      errorDialog.innerHTML = "";
+      google.script.run
+        .withSuccessHandler(() => {
+          console.log("success");
+          errorDialog.innerHTML = "";
+        })
+        .withFailureHandler(() => {
+          console.log("error");
+        })
+        .getNumber(phoneInputValue, nameInputValue, emailInputValue);
+    }
+  });
+</script>
